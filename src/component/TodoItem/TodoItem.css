@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.box{
+    background-color: darkblue;
+    display: flex;
+    justify-content:  center;
+    align-items: center;
+}
+
+.Todo-text{
+    font-size: 25px;
+    margin-top: 3%;
+}
+
+.Todo-check{
+    width: 25px;
+    height: 25px;
+}
+
+.test1{
+    background-color: lime;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+}
+
+.test2{
+    background-color: yellow;
+    border-bottom: 1px solid gray;
+}
+
+#btn{
+    cursor: pointer;
+}

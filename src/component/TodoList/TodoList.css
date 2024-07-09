@@ -1,0 +1,126 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+@media (max-width: 500px){
+    .todo-body{
+        background-color: hsl(235, 24%, 19%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .todo-container{
+        background-color: transparent;
+        width: 95%;
+        margin: 20% 0px 20% 0px;
+    }
+    
+    .header-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        padding: 25px 0px 25px 0px;
+    }
+    
+    .header-title h1{
+        font-family: arial;
+        font-size: 40px;
+        letter-spacing: 10px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .input-todo-box{
+        background: linear-gradient(#a5a4cb, #8989bb);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+    }
+    
+    .input-todo-box input{
+        border: none;
+        padding: 20px;
+        background: hsl(235, 24%, 19%);
+        color: hsl(234, 11%, 52%);
+        width: 90%;
+        outline: none;
+        border-radius: 3px 0px 0px 3px;
+    }
+    
+    .input-todo-box img{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .main-list{
+        margin-top: 10%;
+    }
+}
+
+
+@media (min-width: 501px) {
+    .todo-body{
+        background-color: hsl(235, 24%, 19%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .todo-container{
+        background-color: transparent;
+        width: 40%;
+        margin: 5% 0px 5% 0px;
+    }
+    
+    .header-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        padding: 25px 0px 25px 0px;
+    }
+    
+    .header-title h1{
+        font-family: arial;
+        letter-spacing: 10px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .input-todo-box{
+        background: linear-gradient(#a5a4cb, #8989bb);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 3px;
+    }
+    
+    .input-todo-box input{
+        border: none;
+        padding: 20px;
+        background: hsl(235, 24%, 19%);
+        color: hsl(234, 11%, 52%);
+        width: 90%;
+        outline: none;
+        border-radius: 3px 0px 0px 3px;
+    }
+    
+    .input-todo-box img{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .main-list{
+        margin-top: 7%;
+    }
+    
+    #add-todo{
+        cursor: pointer;
+    }
+}

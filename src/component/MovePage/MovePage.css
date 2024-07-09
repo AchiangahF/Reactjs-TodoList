@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navBox{
+    display: flex;
+    background-color: khaki;
+    justify-content: center;
+}
+
+.footer{
+    background-color: transparent;
+}
+
+.MN-ui{
+    padding: 16px 0px 16px 0px;
+}
+
+@media (max-width: 500px) {
+    #desktop-nav{
+        display: none;
+    }
+}
+
+@media (min-width: 501px) {
+    #mobile_nav{
+        display: none;
+    }
+}

@@ -10,6 +10,7 @@ function TodoList() {
 
     const [todoItems, setTodoItems] = useState([]);
     const [checkedTodos, setCheckedTodos] = useState([]);
+    const [theme, setTheme] = useState(true);
     const [page, setPage] = useState('All');
     const [todoText, setTodoText] = useState([]);
 
@@ -42,30 +43,52 @@ function TodoList() {
         console.log(param);
     }
 
+    console.log(window.innerWidth)
+
     return (
         <Container fluid>
             <Row>
-                <Col className='todo-body' style={{backgroundImage: 'url(../images/bg-desktop-dark.jpg)', backgroundRepeat:'no-repeat'}}>
+                <Col className={theme === true ? 'todo-body':'todo-body bg-white'} style={
+                    (theme === true && window.innerWidth <= 500) ? {
+                      backgroundImage: 'url(./images/bg-mobile-dark.jpg)', 
+                      backgroundRepeat:'no-repeat',
+                      backgroundSize:'100% 35vh'
+                    } :
+                    (theme === false && window.innerWidth <= 500) ? {
+                        backgroundImage: 'url(./images/bg-mobile-light.jpg)', 
+                        backgroundRepeat:'no-repeat',
+                        backgroundSize:'100% 35vh'
+                    } :
+                    (theme === true && window.innerWidth >= 501) ? {
+                        backgroundImage: 'url(./images/bg-desktop-dark.jpg)', 
+                        backgroundRepeat:'no-repeat',
+                    } :
+                    (theme === false && window.innerWidth >= 501) ? {
+                        backgroundImage: 'url(./images/bg-desktop-dark.jpg)', 
+                        backgroundRepeat:'no-repeat',
+                    } : {backgroundImage:'none'}
+
+                    }>
                     <div className='todo-container'>
                         <div className='header'>
 
                          {/* Todo list header containing Title, mod-img and an input-field */}
                             <div className='header-title'>
                                 <h1>TODO</h1>
-                                <img src="../Assests/icon-sun.svg" alt="" />
+                                <img src={theme === true ? "../Assests/icon-sun.svg":"../Assests/icon-moon.svg"} alt="" onClick={() => {setTheme(!theme)}} style={{cursor:'pointer'}}/>
                             </div>
                          
                             <div className='input-todo-box'>
-                                <input type="text" placeholder='Create a new todo...' value={todoText} onChange={(e) =>{setTodoText(e.target.value)}}/>
+                                <input type="text" className={theme === true ? 'inputBox':'inputBox bg-light'} placeholder='Create a new todo...' value={todoText} onChange={(e) =>{setTodoText(e.target.value)}}/>
                                 <div id='add-todo' className='img-fluid' onClick={onAddTodo}><img src="../Assests/add(1).png" alt=""/></div>
                             </div>
                          
                         </div>
-                       
-                       <div className='main-list'>
+                       {todoItems.length > 0 &&
+                       <div className={theme === true ? 'main-list bg-dark':'main-list bg-light'}>
                          {page === 'All' &&
                             todoItems.map((todoitem) =>(
-                                <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo}/>
+                                <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo} todoTheme={theme}/>
                             ))
                          }
                          {page === 'Completed' &&
@@ -79,8 +102,11 @@ function TodoList() {
                             ))
                          }
                        </div>
+                        }
 
-                       <MovePage numItems={todoItems.length} changePage={onChangePage}/>
+                       {todoItems.length > 0 && <MovePage numItems={todoItems.length} changePage={onChangePage} navTheme={theme}/>}
+
+                       <p className='guide text-secondary text-center'>Drag and drop to reorder list</p>
 
                     </div>
                 </Col>

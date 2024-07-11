@@ -12,8 +12,8 @@
 }
 
 .Todo-text{
-    font-size: 25px;
-    margin-top: 3%;
+    font-size: 20px;
+    font-weight: 300;
 }
 
 .Todo-check{
@@ -22,15 +22,17 @@
 }
 
 .test1{
-    background-color: lime;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid gray;
 }
 
 .test2{
-    background-color: yellow;
+    padding: 20px 0px 20px 10px;
+}
+
+.box-content{
+    padding: 0px 10px 0px;
     border-bottom: 1px solid gray;
 }
 

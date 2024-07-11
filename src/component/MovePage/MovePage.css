@@ -6,7 +6,6 @@
 
 .navBox{
     display: flex;
-    background-color: khaki;
     justify-content: center;
 }
 
@@ -15,7 +14,27 @@
 }
 
 .MN-ui{
-    padding: 16px 0px 16px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bblr{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.MN-ui span{
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.DN-ui{
+    padding: 20px;
+}
+
+.DN-ui span{
+    cursor: pointer;
 }
 
 @media (max-width: 500px) {

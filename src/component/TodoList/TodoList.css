@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.guide{
+    margin: 17% 0% 0% 0%;
+}
+
 
 @media (max-width: 500px){
     .todo-body{
@@ -41,9 +45,10 @@
         justify-content: center;
         align-items: center;
         border-radius: 3px;
+        cursor: pointer;
     }
     
-    .input-todo-box input{
+    .input-todo-box .inputBox{
         border: none;
         padding: 20px;
         background: hsl(235, 24%, 19%);
@@ -60,6 +65,9 @@
     
     .main-list{
         margin-top: 10%;
+        padding: 3px 0px 0px 0px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
     }
 }
 
@@ -101,7 +109,7 @@
         border-radius: 3px;
     }
     
-    .input-todo-box input{
+    .input-todo-box .inputBox{
         border: none;
         padding: 20px;
         background: hsl(235, 24%, 19%);
@@ -118,6 +126,9 @@
     
     .main-list{
         margin-top: 7%;
+        padding: 3px 0px 0px 0px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
     }
     
     #add-todo{

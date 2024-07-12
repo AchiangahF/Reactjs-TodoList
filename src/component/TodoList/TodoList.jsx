@@ -16,16 +16,21 @@ function TodoList() {
 
     // THE FUNCTIONS USED
     const onAddTodo = ()=>{
-        setTodoItems([
-            ...todoItems,
-            {
-                id: todoItems.length+1,
-                text: todoText,
-                check: false
-            }
-        ])
+        if(todoText !== ""){
+            setTodoItems([
+                ...todoItems,
+                {
+                    id: todoItems.length+1,
+                    text: todoText,
+                    check: false
+                }
+            ])
 
-        setTodoText('');
+            setTodoText('');
+        }
+        else{
+            alert('Todo is empty. Please enter a Todo');
+        }
     }
 
     const onDeleteTodo = (id)=>{
@@ -84,29 +89,28 @@ function TodoList() {
                             </div>
                          
                         </div>
-                       {todoItems.length > 0 &&
-                       <div className={theme === true ? 'main-list bg-dark':'main-list bg-light'}>
-                         {page === 'All' &&
-                            todoItems.map((todoitem) =>(
-                                <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo} todoTheme={theme}/>
-                            ))
-                         }
-                         {page === 'Completed' &&
-                            checkedTodos.map((todoitem) =>(
-                                <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo}/>
-                            ))
-                         }
-                         {page === 'Active' && 
-                            todoItems.filter((todoitem) =>(todoitem.check === false)).map((todoitem) =>(
-                                <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo}/>
-                            ))
-                         }
-                       </div>
+                        {todoItems.length > 0 &&
+                            <div className={theme === true ? 'main-list bg-dark':'main-list bg-light'}>
+                                {page === 'All' &&
+                                   todoItems.map((todoitem, index) =>(
+                                        <TodoItem todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo} todoTheme={theme}/>
+                                   ))
+                                }
+                                {page === 'Completed' &&
+                                   checkedTodos.map((todoitem) =>(
+                                       <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo}/>
+                                   ))
+                                }
+                                {page === 'Active' && 
+                                   todoItems.filter((todoitem) =>(todoitem.check === false)).map((todoitem) =>(
+                                       <TodoItem key={todoitem.id} todo={todoitem} text={todoitem.text} onDelete={onDeleteTodo} onCheck={onCheckTodo}/>
+                                   ))
+                                }
+                            </div>
                         }
-
                        {todoItems.length > 0 && <MovePage numItems={todoItems.length} changePage={onChangePage} navTheme={theme}/>}
 
-                       <p className='guide text-secondary text-center'>Drag and drop to reorder list</p>
+                       {todoItems.length > 0 && <p className='guide text-secondary text-center'>Drag and drop to reorder list</p>}
 
                     </div>
                 </Col>

@@ -4,10 +4,11 @@
     box-sizing: border-box;
 }
 
-.guide{
-    margin: 17% 0% 0% 0%;
-}
 
+.guide{
+    padding: 25px 0px 0px 0px;
+    font-family: arial;
+}
 
 @media (max-width: 500px){
     .todo-body{
